@@ -36,7 +36,7 @@ env/
 *~
 
 # Data files
-static/data/*.json
+# (keep CSV ignored; allow JSON snapshots to be committed)
 static/data/*.csv
 
 # Streamlit
