@@ -2,21 +2,26 @@
 
 English | 简体中文
 
-English
+## English
+
 A Python-based Tesla financial data analysis system that fetches real-time financial data from SEC EDGAR and displays analysis results through a web interface.
 
-Features
-Automatically fetch latest Tesla financial data from SEC EDGAR
-Financial metrics analysis (revenue, profit margins, assets/liabilities, etc.)
-Year-over-year growth rate calculation
-Interactive chart visualization
-Real-time web interface
-Multi-language support (Simplified Chinese / English)
-🤖 AI-Powered Analysis (OpenAI GPT-4)
-Financial health assessment
-Investment advice generation
-Intelligent Q&A assistant
-Project Structure
+### Features
+
+- Automatically fetch latest Tesla financial data from SEC EDGAR
+- Financial metrics analysis (revenue, profit margins, assets/liabilities, etc.)
+- Year-over-year growth rate calculation
+- Interactive chart visualization
+- Real-time web interface
+- **Multi-language support (Simplified Chinese / English)**
+- **🤖 AI-Powered Analysis (OpenAI GPT-4)**
+  - Financial health assessment
+  - Investment advice generation
+  - Intelligent Q&A assistant
+
+### Project Structure
+
+```
 tesla-predition/
 ├── src/
 │   ├── data/
@@ -32,104 +37,152 @@ tesla-predition/
 ├── run.py                          # Quick start script
 ├── pyproject.toml                  # Project configuration
 └── README.md                       # Documentation
-Installation
+```
+
+### Installation
+
 Using uv:
 
+```bash
 uv sync
+```
+
 Or using pip:
 
+```bash
 pip install -e .
-Usage
-1. Quick Start (Recommended)
-python run.py
-This script will automatically:
+```
 
-Check dependencies
-Fetch Tesla financial data
-Start the web application
-2. Manual Start
+### Usage
+
+#### 1. Quick Start (Recommended)
+
+```bash
+python run.py
+```
+
+This script will automatically:
+- Check dependencies
+- Fetch Tesla financial data
+- Start the web application
+
+#### 2. Manual Start
+
 For step-by-step operation:
 
+```bash
 # Fetch data
 python -m src.data.sec_fetcher
 
 # Start web interface
 streamlit run src/web/app.py
+```
+
 Then open http://localhost:8501 in your browser
 
-3. Language Switching
+#### 3. Language Switching
+
 Select language in the sidebar:
+- 简体中文 (Simplified Chinese)
+- English
 
-简体中文 (Simplified Chinese)
-English
-4. Enable AI Analysis (Optional)
-Get OpenAI API Key: Visit OpenAI Platform
+#### 4. Enable AI Analysis (Optional)
 
-Create .env file:
+1. Get OpenAI API Key: Visit [OpenAI Platform](https://platform.openai.com/api-keys)
 
+2. Create `.env` file:
+```bash
 cp .env.example .env
-Edit .env file and add your API Key:
+```
+
+3. Edit `.env` file and add your API Key:
+```bash
 OPENAI_API_KEY=sk-your-actual-api-key-here
-Restart the application to use AI analysis features
-For detailed instructions, see AI Analysis Guide
+```
 
-Analysis Content
-Revenue trend analysis
-Multi-dimensional profit margin analysis (gross margin, operating margin, net margin)
-Financial structure analysis (asset-liability structure)
-Year-over-year growth rate analysis
-Main Modules
-Data Fetcher (src/data/sec_fetcher.py)
-Fetch Tesla financial data from SEC EDGAR API
-Extract key financial metrics (revenue, profit, assets, etc.)
-Multi-language data output support
-Automatic local data storage
-Financial Analyzer (src/analysis/financial_analyzer.py)
-Calculate revenue trends
-Calculate year-over-year growth rates
-Analyze profit margins (gross, operating, net)
-Calculate financial ratios (debt-to-asset, equity ratio, etc.)
-Multi-language analysis results support
-Internationalization (src/locales/i18n.py)
-Simplified Chinese and English support
-Unified translation management
-Localized financial metric names
-Web Interface (src/web/app.py)
-Interactive dashboard
-Multi-dimensional charts
-Real-time data refresh
-Detailed data tables
-Language switching functionality
-Analysis Metrics
-Revenue Metrics
-Revenue trends
-Year-over-year growth rate
-Profit Metrics
-Gross profit, operating profit, net profit
-Gross margin, operating margin, net margin
-Asset/Liability Metrics
-Total assets, total liabilities, stockholders' equity
-Debt-to-asset ratio, equity ratio, debt-to-equity ratio
-Other Metrics
-Basic earnings per share (EPS)
-Cash and cash equivalents
-Data Source
+4. Restart the application to use AI analysis features
+
+For detailed instructions, see [AI Analysis Guide](AI_ANALYSIS_GUIDE.md)
+
+### Analysis Content
+
+- Revenue trend analysis
+- Multi-dimensional profit margin analysis (gross margin, operating margin, net margin)
+- Financial structure analysis (asset-liability structure)
+- Year-over-year growth rate analysis
+
+### Main Modules
+
+#### Data Fetcher (src/data/sec_fetcher.py)
+
+- Fetch Tesla financial data from SEC EDGAR API
+- Extract key financial metrics (revenue, profit, assets, etc.)
+- Multi-language data output support
+- Automatic local data storage
+
+#### Financial Analyzer (src/analysis/financial_analyzer.py)
+
+- Calculate revenue trends
+- Calculate year-over-year growth rates
+- Analyze profit margins (gross, operating, net)
+- Calculate financial ratios (debt-to-asset, equity ratio, etc.)
+- Multi-language analysis results support
+
+#### Internationalization (src/locales/i18n.py)
+
+- Simplified Chinese and English support
+- Unified translation management
+- Localized financial metric names
+
+#### Web Interface (src/web/app.py)
+
+- Interactive dashboard
+- Multi-dimensional charts
+- Real-time data refresh
+- Detailed data tables
+- Language switching functionality
+
+### Analysis Metrics
+
+#### Revenue Metrics
+- Revenue trends
+- Year-over-year growth rate
+
+#### Profit Metrics
+- Gross profit, operating profit, net profit
+- Gross margin, operating margin, net margin
+
+#### Asset/Liability Metrics
+- Total assets, total liabilities, stockholders' equity
+- Debt-to-asset ratio, equity ratio, debt-to-equity ratio
+
+#### Other Metrics
+- Basic earnings per share (EPS)
+- Cash and cash equivalents
+
+### Data Source
+
 Data sourced from the U.S. Securities and Exchange Commission (SEC) EDGAR database:
+- Company CIK: 0001318605 (Tesla, Inc.)
+- API Documentation: https://www.sec.gov/edgar/sec-api-documentation
 
-Company CIK: 0001318605 (Tesla, Inc.)
-API Documentation: https://www.sec.gov/edgar/sec-api-documentation
-Notes
-Please comply with SEC API rate limits (no more than 10 requests per second)
-Data may be delayed; regular refresh recommended
-Financial data is for reference only and does not constitute investment advice
-Tech Stack
-Python 3.13+
-Streamlit - Web framework
-Plotly - Data visualization
-Requests - HTTP requests
-Pandas - Data processing
-OpenAI - AI-powered analysis
-Python-dotenv - Environment management
+### Notes
+
+1. Please comply with SEC API rate limits (no more than 10 requests per second)
+2. Data may be delayed; regular refresh recommended
+3. Financial data is for reference only and does not constitute investment advice
+
+### Tech Stack
+
+- Python 3.13+
+- Streamlit - Web framework
+- Plotly - Data visualization
+- Requests - HTTP requests
+- Pandas - Data processing
+- OpenAI - AI-powered analysis
+- Python-dotenv - Environment management
+
+
 简体中文
 这是一个基于 Python 的 Tesla 财务数据分析系统，从 SEC EDGAR 获取实时财务数据，并通过 Web 界面展示分析结果。
 
